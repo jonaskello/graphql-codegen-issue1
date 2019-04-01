@@ -14,25 +14,25 @@ export type Bar = {
   readonly id: Scalars["ID"];
 };
 
-export type CachePatch = Foo | Bar;
-
 export type Foo = {
   readonly id: Scalars["ID"];
 };
 
+export type FooBar = Foo | Bar;
+
 export type Query = {
-  readonly _dummy?: Maybe<Scalars["String"]>;
+  readonly fooBar: ReadonlyArray<FooBar>;
+};
+export type Unnamed_1_QueryVariables = {};
+
+export type Unnamed_1_Query = { readonly __typename?: "Query" } & {
+  readonly fooBar: ReadonlyArray<
+
+      | ({ readonly __typename?: "Foo" } & Pick<Foo, "id">)
+      | ({ readonly __typename?: "Bar" } & Pick<Bar, "id">)
+  >;
 };
 
-export type Subscription = {
-  readonly cachePatches: ReadonlyArray<CachePatch>;
-};
-export type CachePatchesSubscriptionSubscriptionVariables = {};
-
-export type CachePatchesSubscriptionSubscription = {
-  readonly __typename?: "Subscription";
-} & { readonly cachePatches: ReadonlyArray<> };
-
-export type CachePatchesSubscription_CachePatchFragment =
+export type FooBarFragmentFragment =
   | ({ readonly __typename?: "Foo" } & Pick<Foo, "id">)
   | ({ readonly __typename?: "Bar" } & Pick<Bar, "id">);
