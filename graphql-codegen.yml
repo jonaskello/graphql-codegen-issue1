@@ -1,0 +1,13 @@
+schema:
+  - "schema.graphql"
+require: "ts-node/register"
+overwrite: true
+config:
+  immutableTypes: true
+generates:
+  generated.ts:
+    documents: "query.graphql"
+    plugins:
+      - add: "//tslint:disable"
+      - "typescript"
+      - "typescript-operations"

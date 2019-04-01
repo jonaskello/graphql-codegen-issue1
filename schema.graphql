@@ -1,0 +1,13 @@
+type Query {
+  fooBar: [FooBar!]!
+}
+
+union FooBar = Foo | Bar
+
+type Foo {
+  id: ID!
+}
+
+type Bar {
+  id: ID!
+}

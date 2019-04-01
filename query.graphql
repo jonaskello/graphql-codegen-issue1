@@ -1,0 +1,14 @@
+query {
+  fooBar {
+    ...FooBarFragment
+  }
+}
+
+fragment FooBarFragment on FooBar {
+  ... on Foo {
+    id
+  }
+  ... on Bar {
+    id
+  }
+}
